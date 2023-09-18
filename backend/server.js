@@ -1,5 +1,18 @@
 import express from 'express';
 import data from './data.js';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+mongoose
+  .connect(process.env.MONGODB_URI)
+  .then(() => {
+    console.log('connected to db');
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
 
 const app = express();
 
@@ -27,6 +40,3 @@ const port = process.env.PORT || 50000;
 app.listen(port, () => {
   console.log(`serve at http://localhost:${port}`);
 });
-//LzEj4y9lX0MgUzkp
-
-//mongodb+srv://burnettdavid93:LzEj4y9lX0MgUzkp@cluster0.lurzw3v.mongodb.net/?retryWrites=true&w=majority&appName=AtlasApp
