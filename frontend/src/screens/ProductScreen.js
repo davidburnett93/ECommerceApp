@@ -72,8 +72,9 @@ function ProductScreen() {
   ) : (
     <div>
       <Row>
-        <Col md={6}>
+        <Col md={4}>
           <img
+            style={{ marginTop: '50px' }}
             className="img-large"
             src={product.image}
             alt={product.name}
@@ -85,7 +86,7 @@ function ProductScreen() {
               <Helmet>
                 <title>{product.name}</title>
               </Helmet>
-              <h1>{product.name}</h1>
+              <h1 style={{ marginTop: '60px' }}>{product.name}</h1>
             </ListGroup.Item>
             <ListGroup.Item>
               <Rating
@@ -93,7 +94,7 @@ function ProductScreen() {
                 numReviews={product.numReviews}
               ></Rating>
             </ListGroup.Item>
-            <ListGroup.Item>Pirce : ${product.price}</ListGroup.Item>
+            <ListGroup.Item>Price : ${product.price}</ListGroup.Item>
             <ListGroup.Item>
               Description:
               <p>{product.description}</p>
@@ -101,7 +102,7 @@ function ProductScreen() {
           </ListGroup>
         </Col>
         <Col md={3}>
-          <Card>
+          <Card style={{ marginTop: '60px' }}>
             <Card.Body>
               <ListGroup variant="flush">
                 <ListGroup.Item>

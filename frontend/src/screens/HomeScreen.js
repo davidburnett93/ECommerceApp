@@ -46,9 +46,9 @@ function HomeScreen() {
   return (
     <div>
       <Helmet>
-        <title>amazona</title>
+        <title>ItWad Helmet!!!</title>
       </Helmet>
-      <h1>Featured Products</h1>
+      <h1 style={{ marginTop: '60px' }}>Featured Products</h1>
       <div className="products">
         {loading ? (
           <LoadingBox />
