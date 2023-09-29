@@ -46,7 +46,7 @@ function HomeScreen() {
   return (
     <div>
       <Helmet>
-        <title>ECommerceStore</title>
+        <title>OnlineStore</title>
       </Helmet>
       <h1 style={{ marginTop: '60px' }}>Featured Products</h1>
       <div className="products">
