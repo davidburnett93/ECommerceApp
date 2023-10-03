@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "proxy": "https://ecommerce-app-backend-a2ak.onrender.com/",
+  "proxy": "http://localhost:50000",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
