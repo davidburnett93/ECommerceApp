@@ -9,7 +9,9 @@ import orderRouter from './routes/orderRoutes.js';
 
 dotenv.config();
 mongoose
-  .connect(process.env.MONGODB_URI)
+  .connect(
+    'mongodb+srv://burnettdavid93:LzEj4y9lX0MgUzkp@cluster0.lurzw3v.mongodb.net/?retryWrites=true&w=majority&appName=AtlasApp'
+  )
   .then(() => {
     console.log('connected to db');
   })
@@ -29,11 +31,13 @@ app.use('/api/products', productRouter);
 app.use('/api/users', userRouter);
 app.use('/api/orders', orderRouter);
 
-const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, '../frontend/build')));
-app.get('*', (req, res) =>
-  res.sendFile(path.join(__dirname, '../frontend/build/index.html'))
-);
+// const __dirname = path.resolve();
+// app.use(express.static(path.join(__dirname, 'frontend/build')));
+// app.get('*', (req, res) =>
+//   res.sendFile(
+//     path.join(__dirname, 'ECommerce-WebApp/frontend/build/index.html')
+//   )
+// );
 
 app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });
