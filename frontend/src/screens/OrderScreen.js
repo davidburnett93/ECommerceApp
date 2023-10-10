@@ -1,4 +1,4 @@
-import axios from 'axios';
+import api from '../components/Api';
 import React, { useContext, useEffect, useReducer } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -71,7 +71,7 @@ export default function OrderScreen() {
     return actions.order.capture().then(async function (details) {
       try {
         dispatch({ type: 'PAY_REQUEST' });
-        const { data } = await axios.put(
+        const { data } = await api.put(
           `/api/orders/${order._id}/pay`,
           details,
           {
@@ -94,7 +94,7 @@ export default function OrderScreen() {
     const fetchOrder = async () => {
       try {
         dispatch({ type: 'FETCH_REQUEST' });
-        const { data } = await axios.get(`/api/orders/${orderId}`, {
+        const { data } = await api.get(`/api/orders/${orderId}`, {
           headers: { authorization: `Bearer ${userInfo.token}` },
         });
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
@@ -113,7 +113,7 @@ export default function OrderScreen() {
       }
     } else {
       const loadPaypalScript = async () => {
-        const { data: clientId } = await axios.get('/api/keys/paypal', {
+        const { data: clientId } = await api.get('/api/keys/paypal', {
           headers: { authorization: `Bearer ${userInfo.token}` },
         });
         paypalDispatch({

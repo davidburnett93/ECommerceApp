@@ -1,4 +1,4 @@
-import Axios from 'axios';
+import api from '../components/Api';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -23,7 +23,7 @@ export default function SigninScreen() {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await Axios.post('/api/users/signin', {
+      const { data } = await api.post('/api/users/signin', {
         email,
         password,
       });
