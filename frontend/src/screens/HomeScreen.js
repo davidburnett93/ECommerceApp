@@ -8,7 +8,7 @@ import Product from '../components/Product';
 import { Helmet } from 'react-helmet-async';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import api from './Api';
+import api from '../components/Api';
 
 const reducer = (state, action) => {
   switch (action.type) {
