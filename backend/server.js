@@ -20,7 +20,15 @@ mongoose
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: 'https://ecommerce-app-frontend-5dyy.onrender.com', // Replace with your frontend URL
+  optionsSuccessStatus: 200,
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); // Enable pre-flight for all routes
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -46,3 +54,4 @@ const port = process.env.PORT || 50000;
 app.listen(port, () => {
   console.log(`serve at http://localhost:${port}`);
 });
+
